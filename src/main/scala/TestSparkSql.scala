@@ -19,7 +19,8 @@ object TestSparkSql {
 
     // Queries are expressed in HiveQL
     println("Result of 'SELECT *': ")
-    sql("SELECT * FROM consumption WHERE de_municip=\"MADRID\"").collect().foreach(println)
+    sql("use datathon")
+      sql("SELECT * FROM mini_consumption").collect().foreach((u:Row) => println("THIS IS THE ROW", u))
 
     sc.stop()
   }
